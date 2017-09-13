@@ -1,9 +1,13 @@
 from flask import Flask
+import requests
 app = Flask(__name__)
  
+CLIENT_ID = "5b0c23ba1e9064e"
+
 @app.route("/")
 def index():
-    return "Welcome to minimugr!"
+	r = requests.get("https://api.imgur.com/3/gallery/hot/viral/0/top", headers={"authorization": "Client-ID " + CLIENT_ID})
+	return r.content
  
 @app.route("/hello")
 def hello():
