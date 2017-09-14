@@ -1,12 +1,13 @@
-<!doctype html>
-<title>MinImgur</title>
+{% extends "base.html" %}
 {% block body %}
   <ul class="minimgur">
   {% for item in minimgur_list %}
-    <li><img src="{{ item.img }}"><p>
-      {{ item.title }}
+    <li>
+        {{ item.title }}
+        <br/>
+        <img src="{{ item.img }}">
   {% else %}
-    <li><em>There's no message so far.</em>
+    <li><em>Nothing in imgur :(</em>
   {% endfor %}
   </ul>
 {% endblock %}
